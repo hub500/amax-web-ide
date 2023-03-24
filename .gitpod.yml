@@ -1,4 +1,4 @@
-image: jaetoxi/eosgitpod:v0.0.1
+image: armoniax/amnod:0.5.0
 
 ports:
 - port: 3000
@@ -16,5 +16,5 @@ tasks:
 - before: cd webapp
   init: yarn
   command: nginx -c $PWD/nginx.conf; npx webpack-dev-server
-- before: cleos wallet unlock --password </password
-  command: nodeos --config-dir ~/eosio/chain/config --data-dir ~/eosio/chain/data -e -p eosio --plugin eosio::chain_api_plugin --contracts-console
+- before: amcli wallet unlock --password </password
+  command: amnod --config-dir ~/eosio/chain/config --data-dir ~/eosio/chain/data -e -p eosio --plugin eosio::chain_api_plugin --contracts-console
