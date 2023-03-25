@@ -43,7 +43,10 @@ amcli get table talk '' message
 
 # 部署amax.token合约
 
+
 ```
+# deploy-amax-token.sh
+
 amcli create account amax amax.token AM6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV -p amax@active
 
 cd /home/gitpod/contracts
