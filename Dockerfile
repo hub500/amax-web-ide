@@ -71,16 +71,17 @@ RUN make install
 
 WORKDIR /home/gitpod/
 USER gitpod
-# RUN  git clone https://github.com/armoniax/amax.contracts \
-#         && cd /home/gitpod/amax.contracts  \
-#         && git submodule update --init --recursive  \
-#         && cd src_system  \
-#         && bash ./build.sh -y \
-#         && mkdir /home/gitpod/contracts  \
-#         && cp `find . -name '*.wasm'` /home/gitpod/contracts  \
-#         && cd /home/gitpod
+RUN  git clone https://github.com/armoniax/amax.contracts \
+        && cd /home/gitpod/amax.contracts  \
+        && git submodule update --init --recursive  \
+        && cd src_system  \
+        && bash ./build.sh -y \
+        && mkdir /home/gitpod/contracts  \
+        && cp `find . -name '*.wasm'` /home/gitpod/contracts  \
+        && cp `find . -name '*.abi'` /home/gitpod/contracts  \
+        && cd /home/gitpod \
+        && rm -rf /home/gitpod/amax.contracts
 
-# && rm -rf /home/gitpod/amax.contracts
 USER root
 WORKDIR /root
 RUN echo >/password  \

@@ -18,10 +18,13 @@ tasks:
   command: nginx -c $PWD/nginx.conf; npx webpack-dev-server
 - before: amcli wallet unlock --password </password
   command: amnod --config-dir ~/eosio/chain/config --data-dir ~/eosio/chain/data -e -p amax --plugin eosio::chain_api_plugin --contracts-console
-- name: amax-token
-  command: amcli create account amax amax.token AM6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV \
-    cd /home/gitpod/contracts \
-    amcli set code amax.token amax.token.wasm \
-    amcli set abi amax.token amax.token.abi \
-    amcli push action amax.token create '["amax","1000000000.00000000 AMAX"]' -p amax.token@active \
-    amcli push action amax.token issue '["amax","1000000000.00000000 AMAX","amax issue"]' -p amax@active
+- name: deploy amax-token
+    before: |
+      cd /home/gitpod/contracts
+    init: |
+      amcli create account amax amax.token AM6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV &&
+      amcli set code amax.token amax.token.wasm &&
+      amcli set abi amax.token amax.token.abi
+    command: |
+      amcli push action amax.token create '["amax","1000000000.00000000 AMAX"]' -p amax.token@active &&
+      amcli push action amax.token issue '["amax","1000000000.00000000 AMAX","amax issue"]' -p amax@active
