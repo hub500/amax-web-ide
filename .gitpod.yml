@@ -18,8 +18,8 @@ tasks:
   command: nginx -c $PWD/nginx.conf; npx webpack-dev-server
 
 - before: amcli wallet unlock --password </password
-  init: |
-    amnod --config-dir ~/eosio/chain/config --data-dir ~/eosio/chain/data -e -p amax --plugin eosio::chain_api_plugin --contracts-console
+  init: >
+    amnod --config-dir ~/eosio/chain/config --data-dir ~/eosio/chain/data -e -p amax --plugin eosio::chain_api_plugin --contracts-console &&
     gp sync-done bundle
   command: pwd
 
