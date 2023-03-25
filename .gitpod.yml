@@ -1,4 +1,4 @@
-image: hub500/amaxwebide:0.0.3
+image: hub500/amaxwebide:0.0.4
 
 ports:
 - port: 3000
