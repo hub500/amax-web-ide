@@ -58,5 +58,5 @@ amcli push action amax.token issue '[ "amax", "1000000000.00000000 AMAX", "amax 
 
 amcli create account amax myusermyuser AM6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
 
-amcli push action amax.mtoken transfer '["amax","myusermyuser","100.00000000 AMAX",""]' -p amax@active
+amcli push action amax.token transfer '["amax","myusermyuser","100.00000000 AMAX",""]' -p amax@active
 ```
