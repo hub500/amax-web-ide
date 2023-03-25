@@ -46,6 +46,11 @@ amcli get table talk '' message
 ```
 amcli create account amax amax.token AM6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
 
+cd /home/gitpod/contracts
+
+amcli set code amax.token amax.token.wasm
+amcli set abi amax.token amax.token.abi
+
 amcli push action amax.token create '[ "amax", "1000000000.00000000 AMAX"]' -p amax.token@active
 
 amcli push action amax.token issue '[ "amax", "1000000000.00000000 AMAX", "amax issue"]' -p amax@active
