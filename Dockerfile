@@ -64,17 +64,23 @@ RUN apt-get update  \
         && cd build \
         && cmake .. \
         && make -j8
+
+USER root
+WORKDIR /root/amax.cdt/build
+RUN make install
+
 WORKDIR /home/gitpod/
 USER gitpod
-RUN  git clone https://github.com/armoniax/amax.contracts \
-        && cd /home/gitpod/amax.contracts  \
-        && git submodule update --init --recursive  \
-        && cd src_system  \
-        && bash ./build.sh \
-        && mkdir /home/gitpod/contracts  \
-        && cp `find . -name '*.wasm'` /home/gitpod/contracts  \
-        && cd /home/gitpod  \
-        && rm -rf /home/gitpod/amax.contracts
+# RUN  git clone https://github.com/armoniax/amax.contracts \
+#         && cd /home/gitpod/amax.contracts  \
+#         && git submodule update --init --recursive  \
+#         && cd src_system  \
+#         && bash ./build.sh -y \
+#         && mkdir /home/gitpod/contracts  \
+#         && cp `find . -name '*.wasm'` /home/gitpod/contracts  \
+#         && cd /home/gitpod
+
+# && rm -rf /home/gitpod/amax.contracts
 USER root
 WORKDIR /root
 RUN echo >/password  \
@@ -91,7 +97,7 @@ RUN { echo  \
 RUN sudo echo "Running 'sudo' for Gitpod: success"
 RUN amcli wallet create --to-console | tail -n 1 | sed 's/"//g' >/password  \
         && amcli wallet import --private-key 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
-RUN echo '\n unlock-timeout = 31536000 \n' >$HOME/eosio-wallet/config.ini
+RUN echo '\n unlock-timeout = 31536000 \n' >$HOME/amax-wallet/config.ini
 RUN rm -f $HOME/.wget-hsts
 WORKDIR /home/gitpod
 USER gitpod
