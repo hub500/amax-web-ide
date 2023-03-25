@@ -1,4 +1,4 @@
-image: armoniax/amnod:0.5.0
+image: hub500/amaxwebide:0.0.1
 
 ports:
 - port: 3000
