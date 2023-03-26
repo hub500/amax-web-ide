@@ -12,6 +12,7 @@ ports:
 - port: 9876
   onOpen: ignore
 
+# https://www.gitpod.io/docs/configure/workspaces/tasks
 tasks:
 - before: cd webapp
   init: yarn
@@ -33,6 +34,7 @@ tasks:
   before: cd /home/gitpod/contracts
   init: gp sync-await bundle
   command: |
+    gp ports await 8888
     amcli create account amax amax.token AM6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV -p amax@active
     amcli set code amax.token amax.token.wasm -p amax.token@active
     amcli set abi amax.token amax.token.abi -p amax.token@active
