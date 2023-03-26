@@ -19,12 +19,8 @@ tasks:
 
 - name: amnod runing
   before: amcli wallet unlock --password </password
-  # init: >
-  #   amnod --config-dir ~/eosio/chain/config --data-dir ~/eosio/chain/data -e -p amax --plugin eosio::chain_api_plugin --contracts-console &&
-  #   gp sync-done bundle
-  # command: pwd
+  init: amnod --config-dir ~/eosio/chain/config --data-dir ~/eosio/chain/data -e -p amax --plugin eosio::chain_api_plugin --contracts-console
   command: |
-    amnod --config-dir ~/eosio/chain/config --data-dir ~/eosio/chain/data -e -p amax --plugin eosio::chain_api_plugin --contracts-console
     amcli create account amax amax.token AM6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV -p amax@active
     amcli set code amax.token amax.token.wasm -p amax.token@active
     amcli set abi amax.token amax.token.abi -p amax.token@active
