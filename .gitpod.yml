@@ -22,6 +22,7 @@ tasks:
   init: amnod --config-dir ~/eosio/chain/config --data-dir ~/eosio/chain/data -e -p amax --plugin eosio::chain_api_plugin --contracts-console
   command: |
     amcli create account amax amax.token AM6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV -p amax@active
+    cd /home/gitpod/contracts
     amcli set code amax.token amax.token.wasm -p amax.token@active
     amcli set abi amax.token amax.token.abi -p amax.token@active
     amcli push action amax.token create '["amax","1000000000.00000000 AMAX"]' -p amax.token@active
