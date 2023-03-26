@@ -1,3 +1,4 @@
+sleep 120
 
 amcli create account amax amax.token AM6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV -p amax@active
 

@@ -1,3 +1,4 @@
+sleep 120
 
 amax-cpp contract/talk.cpp
 
