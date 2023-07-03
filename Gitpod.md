@@ -9,5 +9,5 @@
 
 ![image](https://github.com/hub500/amax-web-ide/assets/80018598/fdfda078-2ad9-439e-9c67-e2a3e96f1a16)
 
-右侧打开 gitpod 工作空间
+点击右侧【Gitpod】打开 gitpod 工作空间，可以进行amax合约在线开发
 
